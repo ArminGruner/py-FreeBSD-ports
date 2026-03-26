@@ -26,11 +26,12 @@
 #
 # import json
 # from pprint import pprint
+import platform
 import re
 
 
 class FreeBSD_ports:
-    DEFAULT_INDEX_PATH = '/usr/ports/INDEX-13'
+    DEFAULT_INDEX_PATH = '/usr/ports/INDEX-%s' % platform.release().partition('.')[0]
 
     def __init__(self, indexfile=DEFAULT_INDEX_PATH):
         self.indexfile = indexfile
